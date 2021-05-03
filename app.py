@@ -1,27 +1,43 @@
-from flask import Flask
+from flask import Flask, g
 from flask_restful import Resource, Api, fields, marshal_with, request
+from db.initialise import initDB
+from db.conn import getDBConnection
+from db.todo import add, getById, getAll
+import json
 
 app = Flask(__name__)
 api = Api(app)
+
+@app.before_request
+def before_request():
+    g.connection = getDBConnection()
+
+@app.after_request
+def after_request(response):
+    g.connection.close()
+    return response
+
+
+initDB()
 
 todoListItems = [
     {
         'id': 1,
         'name': 'Task 1',
         'description': 'Task 1 description',
-        'dueDate': '2021-05-22'
+        'due': '2021-05-22'
     },
     {
         'id': 2,
         'name': 'Task 2',
         'description': 'Task 3 description',
-        'dueDate': '2021-05-23'
+        'due': '2021-05-23'
     },
     {
         'id': 3,
         'name': 'Task 3',
         'description': 'Task 3 description',
-        'dueDate': '2021-05-24'
+        'due': '2021-05-24'
     }
 ]
 
@@ -50,14 +66,12 @@ class ToDo(Resource):
 
 class ToDoList(Resource):
     def get(self):
-        qs = request.args        
-        return todoListItems
+        return getAll()
 
     def post(self):
         todoDict = request.get_json()
-        todoDict['id'] = len(todoListItems) + 1
-        todoListItems.append(todoDict)
-        return todoDict    
+        rows = add(todoDict)        
+        return rows[0], 201
 
 api.add_resource(ToDo, '/todo/<int:id>')
 api.add_resource(ToDoList, '/todos/')
