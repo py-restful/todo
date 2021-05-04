@@ -1,6 +1,13 @@
 ### ToDo API
 This is POC for REST api built using flask / flaskRESTful
 
+This restful service exposes a set of endpoints to manage ToDo item list. Each todo item has the following properties
+1. name: Name for the ToDo item (ex - Buy Groceries)
+2. description: Additiona description(ex - Buy groceries from super mart)
+3. due: Due date for the todo item (ex - "2021-05-05")
+
+The endpoints and requests are described below
+
 ### Endpoints
 The `main` branch is deployed to Heroku https://todo-py-flask-rest.herokuapp.com/. The details of endpoints and requests are listed below.
 
