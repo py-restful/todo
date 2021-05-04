@@ -10,8 +10,9 @@ class QueryRunner():
     
     def runSelect(self, sql, **params):
         cursor = self.connection.cursor()
+        rows = cursor.execute(sql, params).fetchall()
         cursor.close()
-        return cursor.execute(sql, params).fetchall()
+        return rows
     
     def runDML(self, dml, **params):
         cursor = self.connection.cursor()
