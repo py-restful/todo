@@ -10,20 +10,20 @@ The `main` branch is deployed to Heroku https://todo-py-flask-rest.herokuapp.com
 curl -X POST -d '{"name":"T1", "description":"Test description", "due":"2021-05-10"}'  -H 'Content-Type: application/json' https://todo-py-flask-rest.herokuapp.com/todos/
 ```
 
-#### Update todo item - PUT /todo/<id>
+#### Update todo item - PUT /todo/:id
 
 ```
 curl -X PUT -d '{"name":"T1", "description":"Test description updated", "due":"2021-05-20"}'  -H 'Content-Type: application/json' https://todo-py-flask-rest.herokuapp.com/todo/<id>
 ```
 
 
-#### Delete todo item - DELETE /todo/<id>
+#### Delete todo item - DELETE /todo/:id
 
 ```
 curl -X DELETE   -H 'Content-Type: application/json' https://todo-py-flask-rest.herokuapp.com/todo/<id>
 ```
 
-#### Get todo item by ID - GET /todo/<id>
+#### Get todo item by ID - GET /todo/:id
 
 ```
 curl -X GET  -H 'Content-Type: application/json' https://todo-py-flask-rest.herokuapp.com/todo/<id>
