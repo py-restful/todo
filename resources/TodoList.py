@@ -8,5 +8,5 @@ class ToDoList(Resource):
 
     def post(self):
         todoDict = request.get_json()
-        rows = add(todoDict)        
-        return rows[0], 201
+        add(todoDict)        
+        return None, 201

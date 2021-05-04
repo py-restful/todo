@@ -17,8 +17,5 @@ class ToDo(Resource):
     def put(self,id):        
         todoDict = request.get_json()
         todoDict['id'] = id
-        rows = update(todoDict)
-        if len(rows) > 0:
-            return rows[0], 200
-        else:
-            return None, 404
+        update(todoDict)
+        return None, 204
