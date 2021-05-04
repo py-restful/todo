@@ -38,4 +38,11 @@ curl -X GET  -H 'Content-Type: application/json' https://todo-py-flask-rest.hero
 ### Frameworks / tools used
 * Python 3.9.4
 * flaskRESTful 0.3.8
+* sqlite3
 * uWSGI 2.0.19.1
+
+### Run locally
+1. Create a virtual environment with Python 3.9.4
+2. Activate the virtual environment
+3. In terminal / command line run `pip install -r requirements.txt` from repo folder
+4. Run `flask run`
