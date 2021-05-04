@@ -2,9 +2,9 @@ from .queryrunner import QueryRunner
 
 GET_ALL_TODOS = 'SELECT id, name, description, due FROM todo'
 GET_TODO_BYID = 'SELECT id, name, description, due FROM todo WHERE id = :id'
-INSERT_TODO   = 'INSERT INTO todo(name, description, due) VALUES (:name, :description, :due) RETURNING *'
-UPDATE_TODO   = 'UPDATE todo SET name=:name, description=:description, due=:due WHERE id=:id RETURNING *'
-DELETE_TODO   = 'DELETE FROM todo WHERE id=:id RETURNING *'
+INSERT_TODO   = 'INSERT INTO todo(name, description, due) VALUES (:name, :description, :due)'
+UPDATE_TODO   = 'UPDATE todo SET name=:name, description=:description, due=:due WHERE id=:id'
+DELETE_TODO   = 'DELETE FROM todo WHERE id=:id'
 
 def add(todoItem):
     qr = QueryRunner()

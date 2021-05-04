@@ -8,7 +8,7 @@ class ToDo(Resource):
         if row:
             return row, 200
         else:
-            return None, 404
+            return {'error': 'Todo item is not available in database'}, 404
 
     def delete(self, id):
         delete(id)
@@ -17,8 +17,8 @@ class ToDo(Resource):
     def put(self,id):        
         todoDict = request.get_json()
         todoDict['id'] = id
-        rows = update(todoDict)
-        if len(rows) > 0:
-            return rows[0], 200
+        affectedRowData = update(todoDict)
+        if affectedRowData.rowcount > 0:
+            return getById(id), 200
         else:
-            return None, 404
+            return {'error': 'Todo item could not be updated'}, 500

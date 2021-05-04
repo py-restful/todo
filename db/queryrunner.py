@@ -16,8 +16,7 @@ class QueryRunner():
     
     def runDML(self, dml, **params):
         cursor = self.connection.cursor()
-        cursor.execute(dml, params)
-        data = cursor.fetchall()
+        affectedRowData= cursor.execute(dml, params)
         cursor.close()
         self.connection.commit()
-        return data
+        return affectedRowData
