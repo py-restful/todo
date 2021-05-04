@@ -4,32 +4,32 @@ This is POC for REST api built using flask / flaskRESTful
 ### Endpoints
 The `main` branch is deployed to Heroku https://todo-py-flask-rest.herokuapp.com/. The details of endpoints and requests are listed below.
 
-#### Create a new todo item - POST /todos
+##### Create a new todo item - POST /todos
 
 ```
 curl -X POST -d '{"name":"T1", "description":"Test description", "due":"2021-05-10"}'  -H 'Content-Type: application/json' https://todo-py-flask-rest.herokuapp.com/todos/
 ```
 
-#### Update todo item - PUT /todo/:id
+##### Update todo item - PUT /todo/:id
 
 ```
 curl -X PUT -d '{"name":"T1", "description":"Test description updated", "due":"2021-05-20"}'  -H 'Content-Type: application/json' https://todo-py-flask-rest.herokuapp.com/todo/<id>
 ```
 
 
-#### Delete todo item - DELETE /todo/:id
+##### Delete todo item - DELETE /todo/:id
 
 ```
 curl -X DELETE   -H 'Content-Type: application/json' https://todo-py-flask-rest.herokuapp.com/todo/<id>
 ```
 
-#### Get todo item by ID - GET /todo/:id
+##### Get todo item by ID - GET /todo/:id
 
 ```
 curl -X GET  -H 'Content-Type: application/json' https://todo-py-flask-rest.herokuapp.com/todo/<id>
 ```
 
-#### Get all todo items - GET /todos/
+##### Get all todo items - GET /todos/
 
 ```
 curl -X GET  -H 'Content-Type: application/json' https://todo-py-flask-rest.herokuapp.com/todos/
@@ -41,7 +41,7 @@ curl -X GET  -H 'Content-Type: application/json' https://todo-py-flask-rest.hero
 * sqlite3
 * uWSGI 2.0.19.1
 
-### Run locally
+### Steps to Run locally
 1. Create a virtual environment with Python 3.9.4
 2. Activate the virtual environment
 3. In terminal / command line run `pip install -r requirements.txt` from repo folder
